@@ -1,9 +1,13 @@
 import React from 'react'
+import './style.css'
+import CartWidget from '../CartWidget/CartWidget'
 
 
 export default function BarraNavegacion() {
     return (
-        <div>
+        <div className="navbar">
+
+
 
             <ul className="nav nav-tabs">
                 <li className="nav-item">
@@ -21,6 +25,9 @@ export default function BarraNavegacion() {
                     <a className="nav-link" href="#">Activos</a>
                 </li>
             </ul>
+            <div>
+                <CartWidget />
+            </div>
         </div>
     )
 }
