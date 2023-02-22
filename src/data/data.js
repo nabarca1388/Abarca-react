@@ -4,7 +4,7 @@ export const products = [
         name: 'GGAL',
         price: 'U$D 200',
         stock: 10,
-        category: 'Accion',
+        category: 'acciones',
         image: './img/galicia.png',
     },
     {
@@ -12,7 +12,7 @@ export const products = [
         name: 'Aluar',
         price: 'U$D 150',
         stock: 12,
-        category: 'Accion',
+        category: 'acciones',
         image: './img/aluar.jpeg',
     },
     {
@@ -20,7 +20,7 @@ export const products = [
         name: 'AAPL',
         price: 'U$D 50',
         stock: 5,
-        category: 'Cedear',
+        category: 'cedear',
         image: './img/apple.png', 
     },
     {
@@ -28,7 +28,7 @@ export const products = [
         name: 'MELI',
         price: 'U$D 100',
         stock: 15,
-        category: 'Cedear',
+        category: 'cedear',
         image: './img/meli.jpeg',
     }
 
