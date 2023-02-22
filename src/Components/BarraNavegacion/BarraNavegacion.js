@@ -1,18 +1,23 @@
 import React from 'react'
 import './style.css'
 import CartWidget from '../CartWidget/CartWidget'
+import { Link, NavLink } from 'react-router-dom'
 
 
 export default function BarraNavegacion() {
     return (
         <div className="navbar">
 
+        <img className='' alt='1' src='./img/logo.png' width='50px' />
 
+            <ul className="lista">
 
-            <ul className="nav nav-tabs">
-                <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <li>
+                    <NavLink className={({isActive }) => isActive? 'active' : 'inactive' } 
+                        to="/">Home
+                    </NavLink>    
                 </li>
+                {/* 
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Billetera</a>
                     <ul className="dropdown-menu">
@@ -21,10 +26,22 @@ export default function BarraNavegacion() {
                         <li><a className="dropdown-item" href="#">Vender</a></li>
                     </ul>
                 </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">Activos</a>
+                */}
+
+                <li>
+                    <NavLink className={({isActive }) => isActive? 'active' : 'inactive' } 
+                        to="/category/acciones">Acciones
+                    </NavLink>
                 </li>
+
+                <li>
+                    <NavLink className={({isActive }) => isActive? 'active' : 'inactive' } 
+                        to="/category/cedear">Cedears
+                    </NavLink>
+                </li>
+
             </ul>
+
             <div>
                 <CartWidget />
             </div>
