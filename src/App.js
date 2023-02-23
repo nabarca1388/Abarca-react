@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
 import BarraNavegacion from './Components/BarraNavegacion/BarraNavegacion';
@@ -17,7 +17,7 @@ function App() {
       
       <Routes>
         <Route path='/' element={<ItemListContainer/>} />
-        <Route path='/item' element={<ItemDetailContainer/>} />
+        <Route path='/item/:id' element={<ItemDetailContainer/>} />
         <Route path='/category/:categoryId' element={<ItemListContainer/>} />
         <Route path='#' element={<div><h1>Esta pagina no existe</h1></div>} />
       </Routes>

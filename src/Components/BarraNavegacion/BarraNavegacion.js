@@ -1,14 +1,14 @@
 import React from 'react'
 import './style.css'
 import CartWidget from '../CartWidget/CartWidget'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 export default function BarraNavegacion() {
     return (
         <div className="navbar">
 
-        <img className='' alt='1' src='./img/logo.png' width='50px' />
+        <img className='' alt='1' src='/img/logo.png' width='50px' />
 
             <ul className="lista">
 

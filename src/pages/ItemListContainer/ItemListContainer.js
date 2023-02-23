@@ -11,7 +11,7 @@ const ItemListContainer = ({ greeting }) => {
     const [productList, setProductList] = useState([]);
 
     const { categoryId } = useParams();
-    console.log(categoryId);
+    //console.log(categoryId);
 
     const getProducts = new Promise((resolve, reject) => {
         if (categoryId) {

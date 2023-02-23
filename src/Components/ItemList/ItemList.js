@@ -1,17 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Item from '../Item/Item';
 import './style.css';
 
 const ItemList = ({productList}) => {
-
-  console.log(productList);  
 
   return (
     <div className='itemList'>
         {
             productList.map((product) => (
                 <div key={product.id}>
-                    <Item product={product}/>
+                    <Link to={`/item/${product.id}`}>
+                        <Item product={product}/>
+                    </Link>
+                    
                 </div>
             ))
         }
