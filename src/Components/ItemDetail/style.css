@@ -5,3 +5,9 @@
     flex-direction: column;
     align-items: center;
 }
+
+.item1 button{
+    border-radius: 20px;
+    background-color: aqua;
+    margin: 10px;
+}

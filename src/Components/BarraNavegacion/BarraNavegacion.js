@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 
 export default function BarraNavegacion() {
+
     return (
         <div className="navbar">
 
@@ -30,7 +31,7 @@ export default function BarraNavegacion() {
 
                 <li>
                     <NavLink className={({isActive }) => isActive? 'active' : 'inactive' } 
-                        to="/category/acciones">Acciones
+                        to="/category/accion">Acciones
                     </NavLink>
                 </li>
 

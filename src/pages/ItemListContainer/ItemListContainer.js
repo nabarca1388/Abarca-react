@@ -1,40 +1,80 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react';
-import { products } from '../../data/data';
 import ItemList from '../../Components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore';
 
 
-const ItemListContainer = ({ greeting }) => {
+
+const ItemListContainer = () => {
 
     const [productList, setProductList] = useState([]);
 
     const { categoryId } = useParams();
     //console.log(categoryId);
 
-    const getProducts = new Promise((resolve, reject) => {
-        if (categoryId) {
-            const filterProducts = products.filter((item) => item.category === categoryId);
-            setTimeout(() => {
-                resolve(filterProducts)
-            }, 1000)
-        } else {
-            setTimeout(() => {
-                resolve(products)
-            }, 1000)
-        }
-    });
+
+    const getProducts = () => {
+        const db = getFirestore();
+        //const querySnapShot = collection(db, 'products');
+        const queryBase = collection(db, 'products');
+        const querySnapShot = categoryId ? query(queryBase, where('category', '==', categoryId)) : queryBase;
+
+
+        //        if (categoryId) {
+        //            const filteredQuery = query(querySnapShot, where('category', '==', categoryId));
+
+        getDocs(querySnapShot)
+            .then((response) => {
+                const list = response.docs.map((doc) => {
+                    return {
+                        id: doc.id, ...doc.data()
+                    }
+                });
+                setProductList(list);
+                //console.log(list);
+            })
+            .catch((error) => console.log(error))
+        //        }else{
+        //            getDocs(querySnapShot)
+        //            .then((response) => {
+        //                const list = response.docs.map((doc) => {
+        //                    return {
+        //                        id: doc.id, ...doc.data()
+        //                    }
+        //                });
+        //                setProductList(list);
+        //                console.log(list);
+        //            })
+        //            .catch((error) => console.log(error))
+        //        }
+
+    }
+
+
+
+    const onResize = (evento) => {
+        //console.log(evento);
+        console.log('El navegador esta cambiando de tamaño');
+    }
+
+
 
     useEffect(() => {
-        getProducts
-            .then((response) => {
-                setProductList(response)
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+        window.addEventListener('resize', onResize)
+        return () => {
+            window.removeEventListener('resize', onResize);
+        }
+    }, [])
+
+
+
+    useEffect(() => {
+        getProducts();
     }, [categoryId]);
+
+
 
     return (
         <div>
